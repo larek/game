@@ -60,11 +60,22 @@ class SiteController extends Controller
             ]);
     }
     
+    public function actionAnton()
+    {
+        $foo = Messages::find()->all();
+        return $this->render('anton',[
+            'foobar' => 'qwerty',
+            'foo' => $foo
+            ]);
+    }
+    
     public function actionAddmessage(){
         $date = date('Y-m-d H:i:s');
         $model = new Messages();
-        $model->name = $_POST['name'];
-        $model->message = $_POST['message'];
+        $model->congrats = $_POST['congrats'];
+        $model->signature = $_POST['signature'];
+        $model->address = $_POST['address'];
+        $model->email = $_POST['email'];
         $model->dateCreated = $date; 
         echo $model->save() ? 'true' : 'false';
     }

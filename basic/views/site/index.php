@@ -5,9 +5,9 @@ use yii\widgets\ListView;
 $this->title = 'Поздравь бабулю';
 ?>
 <div class="jumbotron">
-		<p><input type="radio" value="1"> pic 1 <input type="radio" value="2"> pic 2 <input type="radio" value="1"> pic 3</p>
+		<!-- <p><input type="radio" value="1"> pic 1 <input type="radio" value="2"> pic 2 <input type="radio" value="1"> pic 3</p> -->
 		<p><textarea class='form-control message' rows='2' placeholder="Пожелания" required id="congrats"></textarea></p>
-		<p><input type="text" class="form-control name" placeholder="Подпись" /></p>
+		<p><input type="text" class="form-control name" placeholder="Подпись" id="signature" /></p>
 		<p><textarea class='form-control message' rows='3' placeholder="Адрес" required id="address"></textarea></p>
 		<p><input type="email" class="form-control name" placeholder="Ваш email" required id="email"></p>
 		<p><span class="btn btn-success btn-message" href="#" role="button"><span class='glyphicon glyphicon-envelope'></span> Поздравить бабулю</span></p>
