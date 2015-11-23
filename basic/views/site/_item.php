@@ -5,8 +5,8 @@
       </a>
     </div>
     <div class="media-body">
-      <h4 class="media-heading"><?= $model->name?></h4>
-      <p><?= $model->message?></p>
+      <h4 class="media-heading"><?= $model->signature?></h4>
+      <p><?= $model->congrats?></p>
     </div>
   </div>
   <br>

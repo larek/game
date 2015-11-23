@@ -28,10 +28,8 @@ class Messages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['dateCreated', 'email', 'congrats'], 'required'],
+            [['dateCreated', 'email', 'address', 'congrats'], 'required'],
             [['dateCreated'], 'safe'],
-            [['message'], 'string'],
-            [['name'], 'string', 'max' => 250],
             [['congrats'], 'string'],
             [['signature'], 'string'],
             [['address'], 'string'],
