@@ -29,6 +29,12 @@ basic/phpunit.xml
 # these are auto generated
 /basic/runtime/**/*
 
+# node stuff
+css
+css/**/*
+/node_modules
+/node_modules/**/*
+
 # not required
 /basic/tests/codeception/templates/**/*
 

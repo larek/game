@@ -11,6 +11,16 @@ Clone the repo
 
 `git clone https://github.com/larek/game.git`
 
+Load node modules by running
+
+`npm install`
+
+Now run gulp to generate the CSS
+
+`gulp`
+
+If you are developing leave gulp running, this way it will update the CSS file when you edit SASS file.
+
 Load dependancies using [composer](https://getcomposer.org/)
 
 ```
