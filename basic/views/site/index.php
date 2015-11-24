@@ -27,17 +27,6 @@ $this->title = 'Поздравь бабулю';
 		<p class="text-muted text-justify"><small>После отправки вашей заявки вы получите имейл уведомление с номером вашей заявки и номером яндекс кошелька на который необходимо перевести оплату за услуг указав номер заказа, после этого вы получите уведомления после отправления вашей открытки.</small></p>
 </div>
 
-<hr>
-<form>
-    <div class="cc-selector">
-        <input id="visa" type="radio" name="credit-card" value="visa" />
-        <label class="drinkcard-cc card1" for="visa"></label>
-        <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
-        <label class="drinkcard-cc card2"for="mastercard"></label>
-    </div>
-</form>
-<hr>
-
 <div class="row marketing">
 <ul class="media-list">
   <?= ListView::widget([
@@ -45,7 +34,6 @@ $this->title = 'Поздравь бабулю';
 	  'itemView' => '_item',
 	  'summary' => false,
   ]);?>
-
 
 </ul>
 </div>
