@@ -1,7 +1,7 @@
 {
   "name": "game",
   "version": "1.0.0",
-  "description": "",
+  "description": "## About Built with yii2 - [official guide](http://www.yiiframework.com/doc-2.0/guide-index.html)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/antonk52/game",
   "devDependencies": {
-    
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-watch": "^4.3.5"
   }
 }

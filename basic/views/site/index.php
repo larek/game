@@ -5,9 +5,22 @@ use yii\widgets\ListView;
 $this->title = 'Поздравь бабулю';
 ?>
 <div class="jumbotron">
-		<p><input type="radio" value="1"> pic 1 <input type="radio" value="2"> pic 2 <input type="radio" value="1"> pic 3</p>
+		<div class="cc-selector">
+			<input id="card1" type="radio" name="cardture" value="card1" />
+			<label class="col-xs-4 drinkcard-cc card1" for="card1">
+				<img class="img-responsive" src="/img/card1.png" alt="">
+			</label>
+			<input id="card2" type="radio" name="cardture" value="card2" />
+			<label class="col-xs-4 drinkcard-cc card2" for="card2">
+				<img class="img-responsive" src="/img/card2.png" alt="">
+			</label>
+			<input id="card3" type="radio" name="cardture" value="card3" />
+			<label class="col-xs-4 drinkcard-cc card3" for="card3">
+				<img class="img-responsive" src="/img/card3.png" alt="">
+			</label>
+		</div>
 		<p><textarea class='form-control message' rows='2' placeholder="Пожелания" required id="congrats"></textarea></p>
-		<p><input type="text" class="form-control name" placeholder="Подпись" /></p>
+		<p><input type="text" class="form-control name" placeholder="Подпись" id="signature" /></p>
 		<p><textarea class='form-control message' rows='3' placeholder="Адрес" required id="address"></textarea></p>
 		<p><input type="email" class="form-control name" placeholder="Ваш email" required id="email"></p>
 		<p><span class="btn btn-success btn-message" href="#" role="button"><span class='glyphicon glyphicon-envelope'></span> Поздравить бабулю</span></p>
@@ -21,7 +34,6 @@ $this->title = 'Поздравь бабулю';
 	  'itemView' => '_item',
 	  'summary' => false,
   ]);?>
-
 
 </ul>
 </div>

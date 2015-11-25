@@ -1,15 +1,19 @@
 $(document).ready(function(){
     $(".btn-message").click(function(){
-        var message = $(".message").val();
-        var name = $(".name").val();
-        if(message=="" || name==""){
+        var congrats = $("#congrats").val();
+        var signature = $("#signature").val();
+        var address = $("#address").val();
+        var email = $("#email").val();
+        if(congrats=="" || address=="" || email==""){
             alert("Заполните хотябы одно поле");
         }else{
-            $.post('site/addmessage',{name : name, message : message}).done(function(data){
-                $(".message").val("");
-                $(".name").val("");
+            $.post('site/addmessage',{congrats : congrats, signature : signature, address : address, email : email}).done(function(data){
+                $("#congrats").val("");
+                $("#signature").val("");
+                $("#address").val("");
+                $("#email").val("");
                 window.location = window.location;
-                console.log(data);        
+                console.log(data);
             });
         }
         
