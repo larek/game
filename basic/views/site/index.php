@@ -6,15 +6,15 @@ $this->title = 'Поздравь бабулю';
 ?>
 <div class="jumbotron">
 		<div class="cc-selector">
-			<input id="card1" type="radio" name="cardture" value="card1" />
+			<input id="card1" type="radio" name="cardture" value="1" id="card"/>
 			<label class="col-xs-4 drinkcard-cc card1" for="card1">
 				<img class="img-responsive" src="/img/card1.png" alt="">
 			</label>
-			<input id="card2" type="radio" name="cardture" value="card2" />
+			<input id="card2" type="radio" name="cardture" value="2" id="card"/>
 			<label class="col-xs-4 drinkcard-cc card2" for="card2">
 				<img class="img-responsive" src="/img/card2.png" alt="">
 			</label>
-			<input id="card3" type="radio" name="cardture" value="card3" />
+			<input id="card3" type="radio" name="cardture" value="3" id="card"/>
 			<label class="col-xs-4 drinkcard-cc card3" for="card3">
 				<img class="img-responsive" src="/img/card3.png" alt="">
 			</label>

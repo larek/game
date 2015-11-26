@@ -4,14 +4,16 @@ $(document).ready(function(){
         var signature = $("#signature").val();
         var address = $("#address").val();
         var email = $("#email").val();
-        if(congrats=="" || address=="" || email==""){
-            alert("Заполните хотябы одно поле");
+        var card = $("input[name=cardture]:checked").val();
+        if(congrats=="" || address=="" || email=="" || card==""){
+            alert("Необходимо заполнить все поля и выбрать изображение для открытки.");
         }else{
-            $.post('site/addmessage',{congrats : congrats, signature : signature, address : address, email : email}).done(function(data){
+            $.post('site/addmessage',{congrats : congrats, signature : signature, address : address, email : email, card : card}).done(function(data){
                 $("#congrats").val("");
                 $("#signature").val("");
                 $("#address").val("");
                 $("#email").val("");
+                $("input[name=cardture]:checked").val();
                 window.location = window.location;
                 console.log(data);
             });

@@ -33,6 +33,7 @@ class Messages extends \yii\db\ActiveRecord
             [['congrats'], 'string'],
             [['signature'], 'string'],
             [['address'], 'string'],
+            [['card'], 'string'],
             [['email'], 'string', 'max' => 250]
         ];
     }

@@ -76,6 +76,7 @@ class SiteController extends Controller
         $model->signature = $_POST['signature'];
         $model->address = $_POST['address'];
         $model->email = $_POST['email'];
+        $model->card = $_POST['card'];
         $model->dateCreated = $date; 
         echo $model->save() ? 'true' : 'false';
     }
