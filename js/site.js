@@ -5,7 +5,7 @@ $(document).ready(function(){
         var address = $("#address").val();
         var email = $("#email").val();
         var card = $("input[name=cardture]:checked").val();
-        if(congrats=="" || address=="" || email=="" || card==""){
+        if(congrats=="" || address=="" || email=="" || card==undefined){
             alert("Необходимо заполнить все поля и выбрать изображение для открытки.");
         }else{
             $.post('site/addmessage',{congrats : congrats, signature : signature, address : address, email : email, card : card}).done(function(data){
