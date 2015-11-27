@@ -9,7 +9,9 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\Messages;
+use app\models\Cards;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 
 class SiteController extends Controller
 {
@@ -51,15 +53,19 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+      
         $query = Messages::find()->orderBy(['dateCreated' => SORT_DESC]);
         $dataProvider = new ActiveDataProvider([
                 'query' => $query,
             ]);
+
+        $cards = Cards::find()->orderBy(['id'=>SORT_ASC])->all();
         return $this->render('index',[
                 'dataProvider' => $dataProvider,
+                'cards' => $cards,
             ]);
     }
-    
+
     public function actionAnton()
     {
         $foo = Messages::find()->all();
@@ -68,7 +74,7 @@ class SiteController extends Controller
             'foo' => $foo
             ]);
     }
-    
+
     public function actionAddmessage(){
         $date = date('Y-m-d H:i:s');
         $model = new Messages();
@@ -77,19 +83,40 @@ class SiteController extends Controller
         $model->address = $_POST['address'];
         $model->email = $_POST['email'];
         $model->card = $_POST['card'];
-        $model->dateCreated = $date; 
-        echo $model->save() ? 'true' : 'false';
+        $model->link = md5($date.$_POST['email']);
+        $model->dateCreated = $date;
+        $model->save() ? $save = 'true' : $save = 'false';
+
+        if($save){
+          $card = Cards::findOne($_POST['card']);
+          Yii::$app->mail->compose('layouts/sendmail',['id' => $model->id])
+          ->setFrom(['post@larek.pro' => 'Babicard.ru'])
+          ->setTo($_POST['email'])
+          ->setSubject('Открытка бабушке №'. $model->id)
+          ->attach($_SERVER['DOCUMENT_ROOT'].$card->image)
+          ->send();
+        }
+
+        echo $save;
+    }
+
+    public function actionMycard($id){
+      $model = Messages::find()->where(['link' => $id])->one();
+      return $this->render('mycard',[
+          'model' => $model,
+        ]);
     }
 
     public function actionLogin()
     {
+        $this->layout ='login';
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect(['/admin/default/index']);
         }
         return $this->render('login', [
             'model' => $model,

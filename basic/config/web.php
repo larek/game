@@ -6,6 +6,12 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+      'admin' => [
+          'class' => 'app\modules\admin\Module',
+          'layout' => 'main.php',
+        ]
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -28,12 +34,26 @@ $config = [
             // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
+        'mail' => [
+         'class' => 'yii\swiftmailer\Mailer',
+         //'useFileTransport' => true,
+         'transport' => [
+             'class' => 'Swift_SmtpTransport',
+             'host' => 'smtp.yandex.ru',  // e.g. smtp.mandrillapp.com or smtp.gmail.com
+             'username' => 'post@larek.pro',
+             'password' => 'avatar910',
+             'port' => '587', // Port 25 is a very common port too
+             'encryption' => 'tls', // It is often used, check your provider or mail server specs
+         ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
                 // ...
+                'mycard/<id>' => 'site/mycard',
+                'admin' => 'admin/default/index',
             ],
         ],
         'log' => [

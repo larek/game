@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\modules\admin\models;
 
 use Yii;
 
@@ -11,6 +11,11 @@ use Yii;
  * @property string $dateCreated
  * @property string $name
  * @property string $message
+ * @property string $email
+ * @property string $congrats
+ * @property string $signature
+ * @property string $address
+ * @property integer $card
  */
 class Messages extends \yii\db\ActiveRecord
 {
@@ -28,10 +33,11 @@ class Messages extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['dateCreated', 'email', 'address', 'congrats'], 'required'],
+            [['dateCreated', 'email'], 'required'],
             [['dateCreated'], 'safe'],
-            [['congrats','signature', 'address', 'card', 'link'], 'string'],
-            [['email'], 'string', 'max' => 250]
+            [['message', 'email', 'congrats', 'signature', 'address','link'], 'string'],
+            [['card'], 'integer'],
+            [['name'], 'string', 'max' => 250]
         ];
     }
 
@@ -45,10 +51,11 @@ class Messages extends \yii\db\ActiveRecord
             'dateCreated' => 'Date Created',
             'name' => 'Name',
             'message' => 'Message',
-            'congrats' => 'congrats',
-            'signature' => 'signature',
-            'address' => 'address',
-            'email' => 'email',
+            'email' => 'Email',
+            'congrats' => 'Congrats',
+            'signature' => 'Signature',
+            'address' => 'Address',
+            'card' => 'Card',
             'link' => 'Link',
         ];
     }

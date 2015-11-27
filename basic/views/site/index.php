@@ -1,23 +1,19 @@
 <?php
 use yii\widgets\ListView;
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = 'Поздравь бабулю';
 ?>
+
 <div class="jumbotron">
 		<div class="cc-selector">
-			<input id="card1" type="radio" name="cardture" value="1"/>
-			<label class="col-xs-4 drinkcard-cc card1" for="card1">
-				<img class="img-responsive" src="/img/card1.png" alt="">
-			</label>
-			<input id="card2" type="radio" name="cardture" value="2"/>
-			<label class="col-xs-4 drinkcard-cc card2" for="card2">
-				<img class="img-responsive" src="/img/card2.png" alt="">
-			</label>
-			<input id="card3" type="radio" name="cardture" value="3"/>
-			<label class="col-xs-4 drinkcard-cc card3" for="card3">
-				<img class="img-responsive" src="/img/card3.png" alt="">
-			</label>
+			<?
+				foreach($cards as $item){
+					echo Html::input('radio','cardture',$item->id,['id' => 'card'.$item->id]);
+					echo Html::tag('label',Html::img($item->image,['class' => 'img-responsive']),['class' => 'col-xs-4 drinkcard-cc card'.$item->id, 'for' => 'card'.$item->id ]);
+				}
+			?>
 		</div>
 		<p><textarea class='form-control message' rows='2' placeholder="Пожелания" id="congrats"></textarea></p>
 		<p><input type="text" class="form-control name" placeholder="Подпись" id="signature" /></p>
