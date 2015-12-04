@@ -16,6 +16,13 @@ gulp.task('sass', function () {
 // Watch css and images for changes
 gulp.task('watch', function () {
 	gulp.watch('./sass/style.sass', ['sass']);
+	gulp.watch('./basic/vendor/bower-asset/**/*', ['bower-folder']);
+});
+
+// Rename bower-asset folder task
+gulp.task('bower-folder', function(){
+	gulp.src('./basic/vendor/bower-asset/**/*')
+		.pipe(gulp.dest('basic/vendor/bower/'));
 });
 
 gulp.task('default', ['sass', 'watch']);
