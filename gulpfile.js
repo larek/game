@@ -26,6 +26,11 @@ gulp.task('bower-folder', function(){
 		.pipe(gulp.dest('basic/vendor/bower/'));
 });
 
+//Create assets folder task
+gulp.task('assets-folder', function(){
+	fs.stat('assets',function(err,stats){
+		if(err) fs.mkdir('assets');
+	})
+});
 
-
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass','bower-folder','assets-folder', 'watch']);
