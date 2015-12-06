@@ -2,7 +2,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
-var watch = require('gulp-watch');
+var fs = require('fs');
+
 
 // Compile sass
 gulp.task('sass', function () {
@@ -24,5 +25,7 @@ gulp.task('bower-folder', function(){
 	gulp.src('./basic/vendor/bower-asset/**/*')
 		.pipe(gulp.dest('basic/vendor/bower/'));
 });
+
+
 
 gulp.task('default', ['sass', 'watch']);
