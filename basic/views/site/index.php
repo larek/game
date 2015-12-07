@@ -31,5 +31,15 @@ $this->title = 'Поздравь бабулю';
 	  'summary' => false,
   ]);?>
 
+<div class="overlay">
+	<p>hi mom</p>
+	<div class="feedback">
+		<div class="close-btn"><span class="glyphicon glyphicon-remove"></span></div>
+		<p class="lead">Спасибо за заказ.</p>
+		<p>Вам на почту отправлено письмо.</p>
+		<div class="graphic"></div>
+	</div>
+</div>
+
 </ul>
 </div>
