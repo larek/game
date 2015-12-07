@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
+var clean = require('gulp-clean');
 var fs = require('fs');
 
 
@@ -17,13 +18,19 @@ gulp.task('sass', function () {
 // Watch css and images for changes
 gulp.task('watch', function () {
 	gulp.watch('./sass/style.sass', ['sass']);
-	gulp.watch('./basic/vendor/bower-asset/**/*', ['bower-folder']);
+	gulp.watch('./basic/vendor/bower-asset/**/*', ['bower-copy']);
 });
 
-// Rename bower-asset folder task
-gulp.task('bower-folder', function(){
+// Copies bower-asset into bower folder
+gulp.task('bower-copy', function(){
 	gulp.src('./basic/vendor/bower-asset/**/*')
 		.pipe(gulp.dest('basic/vendor/bower/'));
+});
+
+// Deletes old bower-asset folder
+gulp.task('bower-del', function () {
+	return gulp.src('./basic/vendor/bower-asset/', {read: false})
+		.pipe(clean());
 });
 
 //Create assets folder task
@@ -33,4 +40,4 @@ gulp.task('assets-folder', function(){
 	})
 });
 
-gulp.task('default', ['sass','bower-folder','assets-folder', 'watch']);
+gulp.task('default', ['sass', 'bower-copy', 'bower-del', 'assets-folder', 'watch']);
