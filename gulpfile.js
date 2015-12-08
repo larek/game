@@ -4,6 +4,7 @@ var minifyCss = require('gulp-minify-css');
 var plumber = require('gulp-plumber');
 var clean = require('gulp-clean');
 var fs = require('fs');
+var composer = require('gulp-composer');
 
 
 // Compile sass
@@ -40,5 +41,9 @@ gulp.task('assets-folder', function(){
 		if(err) fs.mkdir('assets');
 	})
 });
+
+gulp.task('composer-install', function(){
+	composer({ cwd: './basic', bin: 'php ./basic/composer.phar' });
+})
 
 gulp.task('default', ['sass', 'bower-copy', 'assets-folder', 'watch']);
