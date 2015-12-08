@@ -25,9 +25,26 @@ var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
                 console.log(data);
             });
             $(".overlay").css("display", "flex");
+            var pic;
+            switch(card) {
+                case '1':
+                    pic = '/img/card1.png';
+                    break;
+                case '2':
+                    pic = '/img/card2.png';
+                    break;
+                case '3':
+                    pic = '/img/card3.png';
+                    break;
+            }
+            $('.result-card').css({
+                      'background-image' : 'url('+ pic +')'
+                });
+            $('.result-congrats').html(congrats);
         }
 
     });
+
 
     $(".close-btn").click(function(){
         $(".overlay").css("display", "none");
