@@ -28,10 +28,11 @@ gulp.task('bower-copy', function(){
 });
 
 // Deletes old bower-asset folder
-gulp.task('bower-del', function () {
-	return gulp.src('./basic/vendor/bower-asset/', {read: false})
-		.pipe(clean());
-});
+// gulp.task('bower-del', function () {
+// 	return gulp.src('./basic/vendor/bower-asset/', {read: false})
+// 		.pipe(plumber())
+// 		.pipe(clean());
+// });
 
 //Create assets folder task
 gulp.task('assets-folder', function(){
@@ -40,4 +41,4 @@ gulp.task('assets-folder', function(){
 	})
 });
 
-gulp.task('default', ['sass', 'bower-copy', 'bower-del', 'assets-folder', 'watch']);
+gulp.task('default', ['sass', 'bower-copy', 'assets-folder', 'watch']);
